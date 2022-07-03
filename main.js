@@ -71,4 +71,12 @@ window.addEventListener('DOMContentLoaded', function(){
             }
         });
     }
+    //iOS判定
+    if (navigator.userAgent.match(/iPhone|iPad|iPod/)){
+        const normals = document.getElementsByClassName("normal");
+        for(const normal of normals){
+            normal.classList.remove("normal");
+            normal.classList.add("iphone");
+        }
+    }
 });
