@@ -55,7 +55,7 @@ window.addEventListener('DOMContentLoaded', function(){
         },1000);
         setTimeout(() =>{
             loading.style.display = "none";
-        },00);
+        },2500);
     }
     //スマホメニュー
     const spMenu = document.getElementById("spMenu");
