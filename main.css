@@ -52,7 +52,8 @@ body{
     width: 100%;
     height: 100vh;
     background: url(img/blur_edges.png) center center no-repeat;
-    background-size: 100% auto;
+    background-size: cover;
+    z-index:-100;
 }
 .main-body.pagetop{
     background-color:#0000;
