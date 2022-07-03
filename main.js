@@ -1,4 +1,3 @@
-
 window.addEventListener('DOMContentLoaded', function(){
     window.addEventListener('scroll', function(){
         //初期画面スクロールによって背景変更
@@ -6,12 +5,14 @@ window.addEventListener('DOMContentLoaded', function(){
         if(scrolly > window.innerHeight/3){
             if(document.getElementById('mainBody').classList.contains("pagetop")){
                 document.getElementById('mainBody').classList.remove("pagetop");
-                document.getElementById('logo').classList.remove("pagetop");
+                document.getElementById('mainMenu').classList.remove("pagetop");
+                document.getElementById('mainMenu').style.display =("block");
             }
         }else{
             if(!(document.getElementById('mainBody').classList.contains("pagetop"))){
                 document.getElementById('mainBody').classList.add("pagetop");
-                document.getElementById('logo').classList.add("pagetop");
+                document.getElementById('mainMenu').classList.add("pagetop");
+                document.getElementById('mainMenu').style.display =("none");
             }
         }
         //下線長さスクロールによって調整
@@ -32,10 +33,16 @@ window.addEventListener('DOMContentLoaded', function(){
     window.addEventListener('resize', resizeImg);
     resizeImg();
     function resizeImg(){
-        if(window.innerWidth < 800){
+        if(window.innerWidth < 1200 && window.innerWidth > 720){
             let imgAreas = document.getElementsByClassName("img-area");
             for(let imgArea of imgAreas){
                 imgArea.style.fontSize = window.innerWidth/110+"px";
+            }
+        }
+        else if(window.innerWidth <= 720){
+            let imgAreas = document.getElementsByClassName("img-area");
+            for(let imgArea of imgAreas){
+                imgArea.style.fontSize = "2.4vw";
             }
         }
     }
@@ -48,6 +55,20 @@ window.addEventListener('DOMContentLoaded', function(){
         },1000);
         setTimeout(() =>{
             loading.style.display = "none";
-        },2500);
+        },00);
+    }
+    //スマホメニュー
+    const spMenu = document.getElementById("spMenu");
+    if(spMenu){
+        const menuIcon = spMenu.querySelector(".humberger-menu-icon");
+        menuIcon.addEventListener("click",function(){
+            if(menuIcon.classList.contains("menu-open")){
+                menuIcon.classList.remove("menu-open");
+                spMenu.classList.add("hidden");
+            }else{
+                menuIcon.classList.add("menu-open");
+                spMenu.classList.remove("hidden");
+            }
+        });
     }
 });
