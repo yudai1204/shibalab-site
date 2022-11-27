@@ -75,15 +75,9 @@ window.addEventListener('DOMContentLoaded', function () {
         });
     }
     //iOS判定
-<<<<<<< HEAD
     if (navigator.userAgent.match(/iPhone|iPad|iPod/)) {
         const normals = document.getElementsByClassName("normal");
         for (const normal of normals) {
-=======
-    if (navigator.userAgent.match(/iPhone|iPad|iPod/)){
-        const normals = document.getElementsByClassName("normal");
-        for(const normal of normals){
->>>>>>> 0d51978fb59f2ccb1b84cb6f5657c726309fbbe5
             normal.classList.remove("normal");
             normal.classList.add("iphone");
         }
