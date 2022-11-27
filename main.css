@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Gulzar&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap');
+:root{
+    color-scheme: dark;
+}
 *{
     margin:0;
     padding:0;
@@ -20,6 +23,56 @@
     opacity: 1;
     transition: all 1.5s;
 }
+#loading .container{
+    width: 30%;
+    border-bottom: 2vw solid #aaa;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10%;
+    perspective: 1000px;
+    opacity: 0;
+    transition: all 2s 1s;
+}
+#loading .container div {
+    font-size: 3vw;
+    font-family: sans-serif;
+    transform-style: preserve-3d;
+}
+#loading .container div{
+    animation: turn 3s infinite;
+    animation-delay: 2200ms;
+}
+#loading .container div:nth-child(2) {
+    animation-delay: 2400ms;
+}
+#loading .container div:nth-child(3) {
+    animation-delay: 2600ms;
+}
+#loading .container div:nth-child(4) {
+    animation-delay: 2800ms;
+}
+#loading .container div:nth-child(5) {
+    animation-delay: 3000ms;
+}
+#loading .container div:nth-child(6) {
+    animation-delay: 3200ms;
+}
+#loading .container div:nth-child(7) {
+    animation-delay: 3400ms;
+}
+
+@keyframes turn{
+    0%{
+        transform: rotateX(0deg);
+        transform-origin: 0 4vw;
+    }
+    100% {
+        transform: rotateX(360deg);
+        transform-origin: 0 4vw;
+    }
+}
+
 .loaded{
     opacity:0 !important;
 }
@@ -28,6 +81,7 @@ body{
     font-size:25px;
     padding:0;
     background-color: #000;
+    overscroll-behavior: none;
 }
 .main-body.normal{
     margin:0;
@@ -273,51 +327,83 @@ body{
     padding:2em 0;
 }
 .footer{
-    width: 100%;
-    height: 20vh;
-    min-height:100px;
-    max-height: 300px;
+    background-color:#333;
+}
+.footer-main{
+    height: 20vw;
+    max-height:200px;
     background-color:#333;
     font-size: 1.5vh;
+    padding-left:8vw;
+}
+.footr-child{
+    display: block;
+    float: left;
+    margin: 0;
+    padding:0;
+    height: 100%;
+}
+.footer-logo-area{
+    width:25%;
+}
+.footer-text-area{
+    width: 40%;
+}
+.footer-sns-area{
+    width: 34%;
+}
+.footer-logo-area > div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .footer-logo{
-    width:10vh;
-    min-width: 60px;
+    display: block;
+    margin:0  auto;
+    width: 80%;
+    max-width: 10rem;
     filter: invert();
-    float:left;
-    margin: 2vh 10vw;
-}
-.footer-sns{
-    width:18vh;
-    height:5vh;
-    min-width: 30px;
-    filter: invert();
-    float: right;
-    margin: 5vh 8vw;
-}
-.footer-sns img{
-    margin-right: 2vh;
 }
 .footer-text{
-    position: absolute;
-    bottom: 12vh;
-    left: calc(50vw - 2em);
+    width: 90%;
+    padding: 5%;
+    text-align: center;
+    margin-top: min(15%,50px);
 }
 .footer-text a{
     color: #fff;
+    text-decoration: underline 1px;
+    padding: 1em;
 }
-.footer-end{
-    position:absolute;
-    bottom:0;
-    left:0;
+.footer-sns{
+    margin-top:min(21%,78px);
+}
+.footer-sns > a{
+    display: inline-block;
+    width: 22%;
+    max-width: 3rem;
+    filter: invert();
+    margin-right: max(.2rem,5%);
+}
+
+.footer-sns img{
     width: 100%;
-    height: 4vh;
+}
+
+.footer-end{
+    width: 100%;
     min-height: 20px;
     max-height: 75px;
     background-color:#2d2d2d;
-    text-align: center;
     font-size: 1.5vh;
-    padding-top:2vh
+    padding-top:2vh;
+    overscroll-behavior: contain;
+}
+.footer-end > div{
+    text-align:center;
+    width:100%;
 }
 .about-wrap h3{
     font-size: 3.5vh;
@@ -482,15 +568,7 @@ body{
     .pagetop-mouse{
         visibility:hidden;
     }
-    .footer-sns{
-        margin:5vh 2vw;
-    }
-    .footer-text{
-        left: 0;
-        float:left;
-        width: 100%;
-        text-align: center;
-    }
+    
     .main-menu{
         display:none !important;
     }
@@ -538,4 +616,15 @@ body{
         font-size:2.4vw !important;
     }
 
+}
+/*PCでは無効（改行しない）*/
+.sma{
+    display: none;
+}
+
+/*スマートフォンでは有効（改行する）*/
+@media screen and (max-width:720px) {
+    .sma{
+        display: block;
+    }
 }
