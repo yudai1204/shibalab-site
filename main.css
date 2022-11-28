@@ -97,10 +97,15 @@ body{
     background-blend-mode: darken;
     transition: all 0.3s;
 }
-.main-body.iphone::before {
-    content: '';
+.main-body.iphone{
+    position: relative;
+}
+.iphone-background{
+    display: none;
+}
+.main-body.iphone > .iphone-background {
     display: block;
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
@@ -108,9 +113,14 @@ body{
     background: url(img/blur_edges.png) center center no-repeat;
     background-size: auto 100%;
     z-index: -100;
+    opacity: 0.5;
+    transition: all 0.3s;
 }
 .main-body.pagetop{
-    background-color:#0000;
+    background-color:#0001;
+}
+.main-body.pagetop > .iphone-background{
+    opacity: 1;
 }
 .main-content{
     width: 100%;
@@ -119,6 +129,10 @@ body{
     padding-top:100vh;
     margin: 0 auto;
     z-index:0;
+}
+
+.main-body.iphone > .main-content{
+    padding-top:0;
 }
 .blur{
     backdrop-filter: blur(10px);
@@ -375,7 +389,7 @@ body{
 .footer-text a{
     color: #fff;
     text-decoration: underline 1px;
-    padding: 1em;
+    padding: .2em;
 }
 .footer-sns{
     margin-top:min(21%,78px);
@@ -405,6 +419,7 @@ body{
     text-align:center;
     width:100%;
 }
+
 .about-wrap h3{
     font-size: 3.5vh;
     line-height: 2em;
